@@ -1,1 +1,40 @@
-
+<h1>Books</h1>
+<div class="table">
+  <div class="title">
+    <p>Title</p>
+    <ul>
+      <% @books.each do |book| %>
+        <li>
+          <%= book.title %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="body">
+    <p>Body</p>
+    <ul>
+      <% @books.each do |book| %>
+        <li>
+          <%= book.body %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="link">
+    <ul>
+      <% @books.each do |book| %>
+        <li>
+          <%= book.title %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<h2>New book</h2>
+<%= form_with model: @book, local:true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <%= f.submit "Create Book" %>
+<% end %>
